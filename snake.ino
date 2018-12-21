@@ -36,7 +36,8 @@ void gameRunner() {
   checkButtons();
   arduboy.drawRoundRect(apple.x, apple.y, apple.width, apple.height, 1);
   moveSnake();
-  arduboy.print("score: " + score);
+  arduboy.print(F("score:"));
+  arduboy.print(score);
 }
 
 void showHomeScreen() {
@@ -44,11 +45,9 @@ void showHomeScreen() {
   arduboy.setCursor(0, HEIGHT / 2);
   arduboy.println("perss A to continue");
 
-  arduboy.print(state);
   if (arduboy.justPressed(A_BUTTON)) {
     state = 1;
   }
-  arduboy.print(state);
 }
 
 void manager() {
@@ -148,7 +147,6 @@ void moveSnake() {
   }
 
   if (eatsItself()) {
-      arduboy.println("dieeeeeee");
       moves = 0;
       state = 2;
   }
